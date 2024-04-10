@@ -64,7 +64,7 @@ class AlbumMetadata:
 
     def format_folder_path(self, formatter: str) -> str:
         # Available keys: "albumartist", "title", "year", "bit_depth", "sampling_rate",
-        # "id", and "albumcomposer",        
+        # "id", and "albumcomposer",
 
         none_str = "Unknown"
         info: dict[str, str | int | float] = {
@@ -77,9 +77,9 @@ class AlbumMetadata:
             "year": self.year,
             "container": self.info.container,
         }
-        
+
         return formatter.format(**info)
-    
+
     @classmethod
     def from_qobuz(cls, resp: dict) -> AlbumMetadata:
         album = resp.get("title", "Unknown Album")
@@ -320,7 +320,7 @@ class AlbumMetadata:
             "LOW": 0,
             "HIGH": 1,
             "LOSSLESS": 2,
-            "HI_RES": 3,
+            "HI_RES_LOSSLESS": 3,
         }
 
         tidal_quality = resp.get("audioQuality", "LOW")
@@ -402,7 +402,7 @@ class AlbumMetadata:
             "LOW": 0,
             "HIGH": 1,
             "LOSSLESS": 2,
-            "HI_RES": 3,
+            "HI_RES_LOSSLESS": 3,
         }
 
         tidal_quality = resp.get("audioQuality", "LOW")
